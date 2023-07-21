@@ -51,7 +51,7 @@ class WorkingWithDataInJsonFile(WorkingWithVacancies):
             file.write(json.dumps(vacancies))
 
     def sort_vacancies_by_the_minimal_salary(self, dict_key):
-        return sorted(self.data[dict_key], key=lambda x: int(x['_Vacancy__salary_minimal']) if isinstance(x['_Vacancy__salary_minimal'], int) else x is None)
+        return sorted(self.data[dict_key], key=lambda x: int(x['minimal_salary']) if isinstance(x['minimal_salary'], int) else x is None)
 
     def get_top_N_vacancies(self, dict_key, number_of_vacancies):
-        return sorted(self.data[dict_key], key=lambda x: int(x['_Vacancy__salary_minimal']) if isinstance(x['_Vacancy__salary_minimal'], int) else x is None)[-number_of_vacancies:]
+        return sorted(self.data[dict_key], key=lambda x: int(x['minimal_salary']) if isinstance(x['minimal_salary'], int) else x is None)[-number_of_vacancies:]

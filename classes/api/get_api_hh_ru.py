@@ -13,10 +13,10 @@ class GetApiHhRu(GetApi):
         data_result = {'HHru': []}
 
         for item in vacancies_data['items']:
-            data_result['HHru'].append(Vacancy(item['id'],
-                                               item['name'],
-                                               'Зарплата не указана' if item.get('salary') is None else item['salary']['from'],
-                                               item["apply_alternate_url"],
-                                               item["area"]["name"]).__dict__)
+            data_result['HHru'].append({'vacancy_id': item['id'],
+                                       'title': item['name'],
+                                       'minimal_salary': 'Зарплата не указана' if item.get('salary') is None else item['salary']['from'],
+                                       'vacancy_url': item["apply_alternate_url"],
+                                       'loication': item["area"]["name"]})
 
         return data_result
